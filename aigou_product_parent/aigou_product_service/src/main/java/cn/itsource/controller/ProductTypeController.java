@@ -81,4 +81,19 @@ public class ProductTypeController {
     {
         return null;
     }
+
+    /**
+     * 生成主页面
+     * @return
+     */
+    @GetMapping("/genHomePage")
+    public AjaxResult genHomePage(){
+        try {
+            productTypeService.genHomePage();
+            return AjaxResult.getAjaxResult().setSuccess(true).setMessage("成功！");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return AjaxResult.getAjaxResult().setSuccess(false).setMessage("失败！"+e.getMessage());
+        }
+    }
 }

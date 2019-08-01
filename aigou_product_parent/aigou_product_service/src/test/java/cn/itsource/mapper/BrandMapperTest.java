@@ -35,7 +35,6 @@ public class BrandMapperTest {
         PageList<Brand> brandPageList = brandService.selectPage(brandQuery);
         System.out.println(brandPageList.getTotal());
         brandPageList.getRows().forEach(e-> System.out.println(e));
-
     }
     @Test
     public void test2(){
