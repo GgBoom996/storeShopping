@@ -13,4 +13,7 @@
     <packaging>pom</packaging>
 
     <name>aigou_basic_parent</name>
+    <modules>
+        <module>aigou_basic_generator</module>
+    </modules>
 </project>

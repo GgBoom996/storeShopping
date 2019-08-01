@@ -1,8 +1,8 @@
 package cn.itsource.util;
 
 public class AjaxResult {
-    private Boolean success;
-    private String message;
+    private Boolean success = true;
+    private String message = "删除成功！";
     private Object obj;
     private Integer errorCode;
 

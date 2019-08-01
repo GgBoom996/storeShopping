@@ -8,6 +8,7 @@
         <option value="$PROJECT_DIR$/aigou_plat_parent/aigou_plat_service/pom.xml" />
         <option value="$PROJECT_DIR$/aigou_plat_parent/aigou_plat_interface/pom.xml" />
         <option value="$PROJECT_DIR$/aigou_basic_parent/aigou_basic_util/pom.xml" />
+        <option value="$PROJECT_DIR$/aigou_basic_parent/aigou_basic_generator/pom.xml" />
       </list>
     </option>
   </component>

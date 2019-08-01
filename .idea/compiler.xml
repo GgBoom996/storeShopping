@@ -6,17 +6,23 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="aigou-basic-generator" />
+        <module name="aigou_basic_generator" />
         <module name="aigou_basic_util" />
         <module name="aigou_config_server" />
         <module name="aigou_eureka" />
         <module name="aigou_plat_interface" />
         <module name="aigou_plat_service" />
+        <module name="aigou_product_interface" />
+        <module name="aigou_product_service" />
         <module name="aigou_zuul" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="aigou-basic-generator" target="1.8" />
       <module name="aigou-basic-util" target="1.7" />
       <module name="aigou-parent" target="1.8" />
+      <module name="aigou_basic_generator" target="1.8" />
       <module name="aigou_basic_parent" target="1.8" />
       <module name="aigou_basic_util" target="1.8" />
       <module name="aigou_config_server" target="1.8" />
@@ -24,6 +30,9 @@
       <module name="aigou_plat_interface" target="1.8" />
       <module name="aigou_plat_parent" target="1.8" />
       <module name="aigou_plat_service" target="1.8" />
+      <module name="aigou_product_interface" target="1.8" />
+      <module name="aigou_product_parent" target="1.8" />
+      <module name="aigou_product_service" target="1.8" />
       <module name="aigou_zuul" target="1.8" />
     </bytecodeTargetLevel>
   </component>

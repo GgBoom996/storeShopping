@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/aigou-parent.iml" filepath="$PROJECT_DIR$/aigou-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/aigou_basic_parent/aigou_basic_generator/aigou_basic_generator.iml" filepath="$PROJECT_DIR$/aigou_basic_parent/aigou_basic_generator/aigou_basic_generator.iml" />
       <module fileurl="file://$PROJECT_DIR$/aigou_basic_parent/aigou_basic_parent.iml" filepath="$PROJECT_DIR$/aigou_basic_parent/aigou_basic_parent.iml" />
       <module fileurl="file://$PROJECT_DIR$/aigou_basic_parent/aigou_basic_util/aigou_basic_util.iml" filepath="$PROJECT_DIR$/aigou_basic_parent/aigou_basic_util/aigou_basic_util.iml" />
       <module fileurl="file://$PROJECT_DIR$/aigou_config_server/aigou_config_server.iml" filepath="$PROJECT_DIR$/aigou_config_server/aigou_config_server.iml" />
@@ -10,6 +11,9 @@
       <module fileurl="file://$PROJECT_DIR$/aigou_plat_parent/aigou_plat_interface/aigou_plat_interface.iml" filepath="$PROJECT_DIR$/aigou_plat_parent/aigou_plat_interface/aigou_plat_interface.iml" />
       <module fileurl="file://$PROJECT_DIR$/aigou_plat_parent/aigou_plat_parent.iml" filepath="$PROJECT_DIR$/aigou_plat_parent/aigou_plat_parent.iml" />
       <module fileurl="file://$PROJECT_DIR$/aigou_plat_parent/aigou_plat_service/aigou_plat_service.iml" filepath="$PROJECT_DIR$/aigou_plat_parent/aigou_plat_service/aigou_plat_service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/aigou_product_parent/aigou_product_interface/aigou_product_interface.iml" filepath="$PROJECT_DIR$/aigou_product_parent/aigou_product_interface/aigou_product_interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/aigou_product_parent/aigou_product_parent.iml" filepath="$PROJECT_DIR$/aigou_product_parent/aigou_product_parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/aigou_product_parent/aigou_product_service/aigou_product_service.iml" filepath="$PROJECT_DIR$/aigou_product_parent/aigou_product_service/aigou_product_service.iml" />
       <module fileurl="file://$PROJECT_DIR$/aigou_zuul/aigou_zuul.iml" filepath="$PROJECT_DIR$/aigou_zuul/aigou_zuul.iml" />
     </modules>
   </component>

@@ -15,7 +15,7 @@ public class LoginController {
         String username = user.getUsername();
         String password = user.getPassword();
         if ("root".equals(username) && "123456".equals(password)) {
-            return AjaxResult.getAjaxResult().setSuccess(true).setMessage("登录成功");
+            return AjaxResult.getAjaxResult().setSuccess(true).setMessage("登录成功").setObj(user);
         }
         return AjaxResult.getAjaxResult().setSuccess(false).setMessage("登录失败");
     }

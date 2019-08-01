@@ -1,0 +1,18 @@
+server:
+  port: 7000
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1000/eureka
+  instance:
+    prefer-ip-address: true #以ip注册到注册中心
+spring:
+  application:
+    name: spring-cloud-config-server #服务名
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/GgBoom996/configserver.git
+          username: GgBoom996
+          password: jj@.520y

@@ -1,0 +1,14 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1000/eureka/
+  instance:
+    prefer-ip-address: true #使用ip注册到eureka服务列表
+spring:
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: SPRING-CLOUD-CONFIG-SERVER
+      name: application-zuul
+      profile: dev
