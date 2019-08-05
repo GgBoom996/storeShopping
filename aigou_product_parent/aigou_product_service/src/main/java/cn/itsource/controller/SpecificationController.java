@@ -1,8 +1,8 @@
-package ${package.Controller};
+package cn.itsource.controller;
 
-import ${package.Service}.${table.serviceName};
-import ${package.Entity}.${entity};
-import cn.itsource.query.${entity}Query;
+import cn.itsource.domain.Specification;
+import cn.itsource.query.SpecificationQuery;
+import cn.itsource.service.ISpecificationService;
 import cn.itsource.util.AjaxResult;
 import cn.itsource.util.PageList;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -13,23 +13,23 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/${table.entityPath}")
-public class ${entity}Controller {
+@RequestMapping("/specification")
+public class SpecificationController {
     @Autowired
-    public ${table.serviceName} ${table.entityPath}Service;
+    public ISpecificationService specificationService;
 
     /**
     * 保存和修改公用的
-    * @param ${table.entityPath}  传递的实体
+    * @param specification  传递的实体
     * @return Ajaxresult转换结果
     */
     @RequestMapping(value="/save",method= RequestMethod.POST)
-    public AjaxResult save(@RequestBody ${entity} ${table.entityPath}){
+    public AjaxResult save(@RequestBody Specification specification){
         try {
-            if(${table.entityPath}.getId()!=null){
-                ${table.entityPath}Service.updateById(${table.entityPath});
+            if(specification.getId()!=null){
+                specificationService.updateById(specification);
             }else{
-                ${table.entityPath}Service.save(${table.entityPath});
+                specificationService.save(specification);
             }
             return AjaxResult.getAjaxResult();
         } catch (Exception e) {
@@ -46,7 +46,7 @@ public class ${entity}Controller {
     @RequestMapping(value="/delete/{id}",method=RequestMethod.DELETE)
     public AjaxResult delete(@PathVariable("id") Integer id){
         try {
-            ${table.entityPath}Service.removeById(id);
+            specificationService.removeById(id);
             return AjaxResult.getAjaxResult();
         } catch (Exception e) {
         e.printStackTrace();
@@ -56,9 +56,9 @@ public class ${entity}Controller {
 
     //通过id获取信息
     @RequestMapping(value = "/{id}",method = RequestMethod.GET)
-    public ${entity} get(@RequestParam(value="id",required=true) Long id)
+    public Specification get(@RequestParam(value="id",required=true) Long id)
     {
-        return ${table.entityPath}Service.getById(id);
+        return specificationService.getById(id);
     }
 
 
@@ -67,9 +67,9 @@ public class ${entity}Controller {
     * @return
     */
     @RequestMapping(value = "/list",method = RequestMethod.GET)
-    public List<${entity}> list(){
+    public List<Specification> list(){
 
-        return ${table.entityPath}Service.list(null);
+        return specificationService.list(null);
     }
 
 
@@ -80,9 +80,9 @@ public class ${entity}Controller {
     * @return PageList 分页对象
     */
     @RequestMapping(value = "/json",method = RequestMethod.POST)
-    public PageList<${entity}> json(@RequestBody ${entity}Query query)
+    public PageList<Specification> json(@RequestBody SpecificationQuery query)
     {
-        IPage<${entity}> page = ${table.entityPath}Service.page(new Page<${entity}>(query.getSize(),query.getNum()));
+        IPage<Specification> page = specificationService.page(new Page<Specification>(query.getSize(), query.getNum()));
         return new PageList<>(page.getTotal(),page.getRecords());
     }
 }

@@ -1,8 +1,8 @@
-package ${package.Controller};
+package cn.itsource.controller;
 
-import ${package.Service}.${table.serviceName};
-import ${package.Entity}.${entity};
-import cn.itsource.query.${entity}Query;
+import cn.itsource.domain.ProductExt;
+import cn.itsource.query.ProductExtQuery;
+import cn.itsource.service.IProductExtService;
 import cn.itsource.util.AjaxResult;
 import cn.itsource.util.PageList;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -13,23 +13,23 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/${table.entityPath}")
-public class ${entity}Controller {
+@RequestMapping("/productExt")
+public class ProductExtController {
     @Autowired
-    public ${table.serviceName} ${table.entityPath}Service;
+    public IProductExtService productExtService;
 
     /**
     * 保存和修改公用的
-    * @param ${table.entityPath}  传递的实体
+    * @param productExt  传递的实体
     * @return Ajaxresult转换结果
     */
     @RequestMapping(value="/save",method= RequestMethod.POST)
-    public AjaxResult save(@RequestBody ${entity} ${table.entityPath}){
+    public AjaxResult save(@RequestBody ProductExt productExt){
         try {
-            if(${table.entityPath}.getId()!=null){
-                ${table.entityPath}Service.updateById(${table.entityPath});
+            if(productExt.getId()!=null){
+                productExtService.updateById(productExt);
             }else{
-                ${table.entityPath}Service.save(${table.entityPath});
+                productExtService.save(productExt);
             }
             return AjaxResult.getAjaxResult();
         } catch (Exception e) {
@@ -46,7 +46,7 @@ public class ${entity}Controller {
     @RequestMapping(value="/delete/{id}",method=RequestMethod.DELETE)
     public AjaxResult delete(@PathVariable("id") Integer id){
         try {
-            ${table.entityPath}Service.removeById(id);
+            productExtService.removeById(id);
             return AjaxResult.getAjaxResult();
         } catch (Exception e) {
         e.printStackTrace();
@@ -56,9 +56,9 @@ public class ${entity}Controller {
 
     //通过id获取信息
     @RequestMapping(value = "/{id}",method = RequestMethod.GET)
-    public ${entity} get(@RequestParam(value="id",required=true) Long id)
+    public ProductExt get(@RequestParam(value="id",required=true) Long id)
     {
-        return ${table.entityPath}Service.getById(id);
+        return productExtService.getById(id);
     }
 
 
@@ -67,9 +67,9 @@ public class ${entity}Controller {
     * @return
     */
     @RequestMapping(value = "/list",method = RequestMethod.GET)
-    public List<${entity}> list(){
+    public List<ProductExt> list(){
 
-        return ${table.entityPath}Service.list(null);
+        return productExtService.list(null);
     }
 
 
@@ -80,9 +80,9 @@ public class ${entity}Controller {
     * @return PageList 分页对象
     */
     @RequestMapping(value = "/json",method = RequestMethod.POST)
-    public PageList<${entity}> json(@RequestBody ${entity}Query query)
+    public PageList<ProductExt> json(@RequestBody ProductExtQuery query)
     {
-        IPage<${entity}> page = ${table.entityPath}Service.page(new Page<${entity}>(query.getSize(),query.getNum()));
+        IPage<ProductExt> page = productExtService.page(new Page<ProductExt>(query.getSize(),query.getNum()));
         return new PageList<>(page.getTotal(),page.getRecords());
     }
 }

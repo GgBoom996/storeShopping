@@ -120,6 +120,49 @@ public class Product extends Model<Product> {
     @TableField("badCommentCount")
     private Integer badCommentCount;
 
+    @TableField("medias")
+    private String medias;
+
+    @TableField(exist = false)
+    private ProductType productType;
+
+    @TableField(exist = false)
+    private Brand brand;
+
+    @TableField(exist =  false)
+    private ProductExt productExt;
+
+    public String getMedias() {
+        return medias;
+    }
+
+    public void setMedias(String medias) {
+        this.medias = medias;
+    }
+
+    public ProductType getProductType() {
+        return productType;
+    }
+
+    public void setProductType(ProductType productType) {
+        this.productType = productType;
+    }
+
+    public Brand getBrand() {
+        return brand;
+    }
+
+    public void setBrand(Brand brand) {
+        this.brand = brand;
+    }
+
+    public ProductExt getProductExt() {
+        return productExt;
+    }
+
+    public void setProductExt(ProductExt productExt) {
+        this.productExt = productExt;
+    }
 
     public Long getId() {
         return id;

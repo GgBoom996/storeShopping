@@ -1,7 +1,6 @@
 package cn.itsource;
 
 import com.baomidou.mybatisplus.annotation.DbType;
-import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.InjectionConfig;
 import com.baomidou.mybatisplus.generator.config.*;
@@ -9,7 +8,9 @@ import com.baomidou.mybatisplus.generator.config.converts.MySqlTypeConvert;
 import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
 
 public class CodeGenerator {
 
@@ -40,7 +41,7 @@ public class CodeGenerator {
         StrategyConfig strategy = new StrategyConfig();
         strategy.setTablePrefix(new String[] { "t_" });// 此处可以修改为您的表前缀
         strategy.setNaming(NamingStrategy.underline_to_camel);// 表名生成策略
-        strategy.setInclude(new String[]{"t_product","t_product_type","t_brand"}); // 需要生成的表
+        strategy.setInclude(new String[]{"t_product_ext","t_sku","t_specification","t_specification_option"}); // 需要生成的表
         mpg.setStrategy(strategy);
         // 包配置
         PackageConfig pc = new PackageConfig();
