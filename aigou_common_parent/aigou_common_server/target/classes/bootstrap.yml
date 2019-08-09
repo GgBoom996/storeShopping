@@ -12,5 +12,9 @@ spring:
         service-id: SPRING-CLOUD-CONFIG-SERVER
       name: application-common
       profile: dev
+  data:
+    elasticsearch:
+      cluster-name: elasticsearch
+      cluster-nodes: 127.0.0.1:9300
 server:
   max-http-header-size: 10240000

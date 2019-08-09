@@ -6,7 +6,9 @@ import cn.itsource.query.ProductQuery;
 import cn.itsource.service.IProductService;
 import cn.itsource.util.AjaxResult;
 import cn.itsource.util.PageList;
+import cn.itsource.util.StrUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.codec.json.AbstractJackson2Decoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -82,7 +84,7 @@ public class ProductController {
     @RequestMapping(value = "/json",method = RequestMethod.POST)
     public PageList<Product> json(@RequestBody ProductQuery query)
     {
-        return null;
+        return productService.queryPage(query);
     }
 
     /**
@@ -120,6 +122,50 @@ public class ProductController {
         } catch (Exception e) {
             e.printStackTrace();
             return AjaxResult.getAjaxResult().setSuccess(false).setMessage("操作失败!"+e.getMessage());
+        }
+    }
+
+    //对sku属性的更改 如果没有则直接从数据库拿取值
+    @PostMapping("/updateSkuProperties")
+    public AjaxResult updateSkuProperties(@RequestBody Map<String,Object> param){
+        //获取参数
+        long productId = (Integer)param.get("productId");
+        List<Map<String, String>> skus = (List<Map<String, String>>) param.get("skus");
+        List<Map<String, String>> skuProperties = (List<Map<String, String>>) param.get("skuProperties");
+
+        //调用service方法  在同一个事务中处理
+        try {
+            productService.updateSkuProperties(productId,skus,skuProperties);
+            return AjaxResult.getAjaxResult().setSuccess(true).setMessage("成功！");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return AjaxResult.getAjaxResult().setSuccess(false).setMessage("失败！");
+        }
+    }
+
+    //上架
+    @GetMapping("/onSale")
+    public AjaxResult onSale(String ids){
+        List<Long> longs = StrUtils.splitStr2LongArr(ids);
+        try {
+            productService.onSale(longs);
+            return AjaxResult.getAjaxResult().setSuccess(true).setMessage("上架成功");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return AjaxResult.getAjaxResult().setSuccess(false).setMessage("上架失败");
+        }
+    }
+
+    //下架
+    @GetMapping("offSale")
+    public AjaxResult offSale(String ids){
+        List<Long> longs = StrUtils.splitStr2LongArr(ids);
+        try {
+            productService.offSale(longs);
+            return AjaxResult.getAjaxResult().setSuccess(true).setMessage("下架成功");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return AjaxResult.getAjaxResult().setSuccess(false).setMessage("下架失败");
         }
     }
 }

@@ -12,3 +12,10 @@ spring:
         service-id: SPRING-CLOUD-CONFIG-SERVER
       name: application-zuul
       profile: dev
+zuul:
+  host:
+    connect-timeout-millis: 15000 #HTTP连接超时大于Hystrix的超时时间
+    socket-timeout-millis: 60000   #socket超时
+ribbon:        #设置ribbon的超时时间小于zuul的超时时间
+  ReadTimeout: 10000
+  ConnectTimeout: 10000
